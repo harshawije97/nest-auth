@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
-import { ProfilesController } from './profiles/profiles.controller';
-import { ProfilesModule } from './profiles/profiles.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [ProfilesModule],
-  controllers: [ProfilesController],
-  providers: [ProfilesModule],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      expandVariables: true,
+    }),
+  ],
 })
 export class AppModule {}
