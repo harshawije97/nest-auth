@@ -3,7 +3,16 @@ import { timestamp } from 'drizzle-orm/pg-core';
 import { boolean } from 'drizzle-orm/pg-core';
 import { uuid } from 'drizzle-orm/pg-core';
 import { pgTable } from 'drizzle-orm/pg-core';
-import { taskStatus, userRoles } from './enums.entities';
+import { pgEnum } from 'drizzle-orm/pg-core';
+
+export const taskStatus = pgEnum('task_status', [
+  'todo',
+  'processing',
+  'completed',
+  'cancelled',
+]);
+
+export const userRoles = pgEnum('user_roles', ['user', 'admin', 'guest']);
 
 export const users = pgTable('users', {
   id: uuid('users_id').defaultRandom().primaryKey(),
