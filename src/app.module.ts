@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { UsersService } from './users/users.service';
 
 @Module({
   imports: [
@@ -8,5 +9,6 @@ import { ConfigModule } from '@nestjs/config';
       expandVariables: true,
     }),
   ],
+  providers: [UsersService],
 })
 export class AppModule {}

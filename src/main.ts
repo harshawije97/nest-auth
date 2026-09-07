@@ -8,6 +8,7 @@ import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
   const configService = app.get(ConfigService);
   app.use(cookieParser());
   app.setGlobalPrefix('api');
@@ -17,8 +18,9 @@ async function bootstrap() {
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
-      transform: true,
+      transform: true, // automatically transform data into DTO
       forbidNonWhitelisted: true,
+      stopAtFirstError: true, // stop at first error instead of collecting all errors
     }),
   );
 
@@ -41,4 +43,5 @@ async function bootstrap() {
     `Swagger documentation is running on: http://localhost:${port}/api/docs`,
   );
 }
-bootstrap();
+
+void bootstrap();
