@@ -43,6 +43,6 @@ export const tasks = pgTable('tasks', {
 });
 
 export type User = typeof users.$inferSelect;
-export type InsertUser = typeof users.$inferInsert;
+export type NewUser = typeof users.$inferInsert;
 export type Task = typeof tasks.$inferSelect;
 export type InsertTask = typeof tasks.$inferInsert;

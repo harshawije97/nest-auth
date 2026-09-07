@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { UsersService } from './users/users.service';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -8,6 +9,7 @@ import { UsersService } from './users/users.service';
       isGlobal: true,
       expandVariables: true,
     }),
+    UsersModule,
   ],
   providers: [UsersService],
 })
