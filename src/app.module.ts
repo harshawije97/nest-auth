@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { UsersService } from './users/users.service';
 import { UsersModule } from './users/users.module';
 import { EmailService } from './email/email.service';
+import { AuthService } from './auth/auth.service';
 
 @Module({
   imports: [
@@ -12,6 +13,6 @@ import { EmailService } from './email/email.service';
     }),
     UsersModule,
   ],
-  providers: [UsersService, EmailService],
+  providers: [UsersService, EmailService, AuthService],
 })
 export class AppModule {}
